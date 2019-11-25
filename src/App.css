@@ -1,0 +1,10 @@
+img {
+   height: 100px;
+   width: 100px;
+  }
+
+.figure {
+    background-color: grey;
+    margin: 10px;
+    width: 300px;
+}
