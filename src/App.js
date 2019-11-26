@@ -18,6 +18,12 @@ class App extends Component {
       selected: figure
     });
   }
+
+  reset() {
+    this.setState({
+      selected: null
+    })
+  }
   
   getNewestFigures = () => {
     fetch('http://localhost:3001/api/new')
@@ -41,7 +47,7 @@ class App extends Component {
     </div>
     <div className = "showcase">
       {(selected) &&
-        <div className="preview"><FigureShowcase gname={selected}/></div>
+        <div className="preview"><FigureShowcase gname={selected} onClick={() => this.reset()} /></div>
       }}
     </div>
     </div>
