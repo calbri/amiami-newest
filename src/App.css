@@ -1,10 +1,90 @@
-img {
-   height: 100px;
-   width: 100px;
-  }
+.content {
+    display: flex;
+}
+
+.amiami-list {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1
+}
+
+.showcase {
+    flex-grow: 1
+}
+
+.preview {
+    width: 50pc;
+    height: 100pc;
+    background-color: rgba(255,255,255,0.8);
+    margin-right: 20px;
+    border-radius: 5px;
+}
 
 .figure {
-    background-color: grey;
-    margin: 10px;
-    width: 300px;
+    background-color: rgba(255,255,255,0.8);
+    margin: 0 10px 20px 10px;
+    width: 30%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+body {
+    background: rgba(0, 0, 0, .5) url("akiba.jpg");
+    background-blend-mode: darken;
+    
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    backdrop-filter: blur(5px);
+}
+
+.figure-img-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.figure-img {
+    display: block; 
+    width:100%;    
+    border-radius: 0 5px 5px 0;
+}
+
+.figure:hover {
+    background-color: rgba(255, 230, 230, .85);
+}
+
+.figure-details {
+    width: 200px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.figure-name {
+    font-size: 1.2em;
+    overflow: hidden;
+}
+
+.manufacturer img {
+    max-width: 60%;
+    max-height: 80px;
+}
+
+.amiami-list {
+    display: flex;
+    flex-wrap: wrap;
 }
