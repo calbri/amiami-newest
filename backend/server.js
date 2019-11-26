@@ -1,4 +1,5 @@
 const axios = require('axios');
+const cheerio = require('cheerio');
 
 const express = require('express');
 var cors = require('cors');
@@ -12,6 +13,7 @@ axios.defaults.headers.common['X-User-Key'] = 'amiami_dev';
 
 const AMIAMI_NEWEST = "https://api.amiami.com/api/v1.0/items?pagemax=30&s_st_list_preorder_available=1&s_cate_tag=14";
 const AMIAMI_LOOKUP = "https://api.amiami.com/api/v1.0/item?gcode=";
+const SOLARIS_LOOKUP = "https://mfc.solarisjapan.com/";
 
 router.get('/new', (req, res) => {
     console.log("new figures request");
@@ -38,6 +40,24 @@ router.get('/item/:gcode', (req, res) => {
         }).then(() => {
             return res.json({
                 message: response
+            });
+        });
+});
+
+router.get('/solaris/:jan', (req, res) => {
+    console.log("solaris request for " + req.params.jan);
+    axios(SOLARIS_LOOKUP + req.params.jan)
+        .then((response) => {
+            html = response.data;
+            $ = cheerio.load(html);
+            value = $('meta[itemprop="price"]').attr("content");
+        }).catch((err) => {
+            value = "error";
+            console.log("error looking up figure");
+        }).then(() => {
+            console.log(value);
+            return res.json({
+                message: value
             });
         });
 });

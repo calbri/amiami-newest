@@ -2,7 +2,8 @@ import React, { Component } from "react";
 
 class FigureShowcase extends Component {   
     state = {
-        message: null
+        message: null,
+        solaris: null
       };
 
     componentDidMount() {
@@ -15,7 +16,8 @@ class FigureShowcase extends Component {
       
       if (nextProps.gname !== gname) {
         this.setState({
-          message: null
+          message: null,
+          solaris: null
         })
         this.lookup(nextProps.gname);
       }
@@ -27,11 +29,20 @@ class FigureShowcase extends Component {
         .then((res) => {
           console.log(res.message);
           this.setState({ message: res.message })
+          this.lookupSolaris(res.message.jancode);
+        });
+    };
+
+    lookupSolaris = (jan) => {
+      fetch('http://localhost:3001/api/solaris/'+jan)
+        .then((data) => data.json())
+        .then((res) => {
+          this.setState({ solaris: res.message })
         });
     };
     
     render() {
-      const {message} = this.state;
+      const {message, solaris} = this.state;
       const {onClick} = this.props;
     
       if (!message) {
@@ -44,7 +55,11 @@ class FigureShowcase extends Component {
             <div className = "showcase-meta">
             <div className="showcase-manu">Manufactured by: {message.maker_name}</div>
             <div className="showcase-release-date">Release Date: {message.releasedate}</div>
-            <div className="showcase-price">Price: {message.list_price}</div>
+            <div className="showcase-price">Price: {message.price}</div>
+            <div className="showcase-jan">JAN: {message.jancode}</div>
+            </div>
+            <div className="showcase-pricing">
+              <div className="showcase-price-compare">Solaris Price: {solaris ? solaris : "loading"}</div>
             </div>
             <button className="showcase-exit" onClick={onClick}>Close</button> 
         </div>;
