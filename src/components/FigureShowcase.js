@@ -24,7 +24,10 @@ class FigureShowcase extends Component {
     lookup = (gname) => {
       fetch('http://localhost:3001/api/item/'+gname)
         .then((data) => data.json())
-        .then((res) => this.setState({ message: res.message }));
+        .then((res) => {
+          console.log(res.message);
+          this.setState({ message: res.message })
+        });
     };
     
     render() {
@@ -36,8 +39,14 @@ class FigureShowcase extends Component {
       }
 
       return <div className="figure-showcase">
-            <div className="showcase-name">{message.gname}</div>
-            <button onClick={onClick}>Close</button> 
+            <div className="showcase-name"><h2>{message.gname}</h2></div>
+            <div><img className="showcase-img" alt="figure" src={"https://img.amiami.com/" + message.main_image_url} /></div>
+            <div className = "showcase-meta">
+            <div className="showcase-manu">Manufactured by: {message.maker_name}</div>
+            <div className="showcase-release-date">Release Date: {message.releasedate}</div>
+            <div className="showcase-price">Price: {message.list_price}</div>
+            </div>
+            <button className="showcase-exit" onClick={onClick}>Close</button> 
         </div>;
     }
   }

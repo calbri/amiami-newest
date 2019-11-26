@@ -15,7 +15,6 @@
 
 .preview {
     width: 50pc;
-    height: 100pc;
     background-color: rgba(255,255,255,0.8);
     margin-right: 20px;
     border-radius: 5px;
@@ -87,4 +86,43 @@ body {
 .amiami-list {
     display: flex;
     flex-wrap: wrap;
+}
+
+.figure-showcase {
+    padding: 10px;
+    display: flex;
+    flex-direction :column;
+    align-items: center;
+}
+
+.showcase-img {
+    max-height: 50vh;
+    width: auto;
+    display:block;
+}
+
+.showcase-name {
+    text-align: center;
+}
+
+.showcase-exit {
+    background-color: darkgrey;
+    color:black;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 2px;
+    border: 1px solid black;
+}
+
+.showcase-meta {
+    border: 2px solid black;
+    padding: 10px;
+    background-color: rgba(255,255,255,0.5);
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.showcase-exit:hover {
+    background-color: black;
+    color:white;
 }
