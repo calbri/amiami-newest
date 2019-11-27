@@ -9,10 +9,6 @@
     flex-grow: 1
 }
 
-.showcase {
-    flex-grow: 1
-}
-
 .preview {
     width: 50pc;
     background-color: rgba(255,255,255,0.8);
@@ -21,12 +17,15 @@
 }
 
 .figure {
-    background-color: rgba(255,255,255,0.8);
     margin: 0 10px 20px 10px;
-    width: 30%;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
+    width: 15%;
+    border-radius: 8px;
+    position: relative;
+    border: 2px solid grey;
+}
+
+.figure:hover {
+    border: 2px solid white;
 }
 
 h1 {
@@ -37,7 +36,7 @@ h1 {
 body {
     background: rgba(0, 0, 0, .5) url("akiba.jpg");
     background-blend-mode: darken;
-    
+    font-family: Arial, Helvetica, sans-serif;
     top: 0;
     left: 0;
     padding: 0;
@@ -49,40 +48,37 @@ body {
 }
 
 .figure-img-container {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    height: 100%;
 }
 
 .figure-img {
     display: block; 
-    width:100%;    
-    border-radius: 0 5px 5px 0;
+    width: 100%;    
+    height: 100%;
+    border-radius: 8px;
 }
 
-.figure:hover {
-    background-color: rgba(255, 230, 230, .85);
+
+.manufacturer {
+    color: white;
+    position: absolute;
+    bottom: 0;
+    font-weight: 600;
+    border-radius: 8px;
+    background-image: linear-gradient(transparent, rgba(0,0,0,0.8));
+    width: 100%;
+    
 }
 
-.figure-details {
-    width: 200px;
+.manufacturerText {
     padding: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.figure-name {
-    display:block;
-    max-height: 40%;
-    font-size: 1.2em;
-    overflow: hidden;
 }
 
 .manufacturer img {
-    max-width: 60%;
-    max-height: 80px;
+    display: inline;
+    max-width: 40%;
+    padding: 5px;
+    vertical-align: bottom;
 }
 
 .amiami-list {
@@ -120,11 +116,27 @@ body {
     border: 2px solid black;
     padding: 10px;
     background-color: rgba(255,255,255,0.5);
-    margin: 10px;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 .showcase-exit:hover {
     background-color: black;
     color:white;
+}
+
+
+.showcase-contents {
+    display: flex;
+    flex-direction: row;
+}
+
+.showcase-left {
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+}
+
+.showcase {
+    flex-grow: 1
 }

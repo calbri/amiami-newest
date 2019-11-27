@@ -11,8 +11,6 @@ class Manufacturer extends Component {
                 return <img alt={name} src="img/phat_logo.png" />
             case "FREEing":
                 return <img alt={name} src="img/free_logo.png" />
-            case "Broccoli":
-                return <img alt={name} src="img/broc_logo.jpg" />
             case "Kotobukiya":
                 return <img alt={name} src="img/koto_logo.png" />
             case "SkyTube":
@@ -20,7 +18,7 @@ class Manufacturer extends Component {
             case "Alphamax":
                 return <img alt={name} src="img/amx_logo.png" />
             default:
-                return name;
+                return <div className="manufacturerText">{name}</div>;
         }
     }  
     

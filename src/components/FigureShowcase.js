@@ -51,7 +51,9 @@ class FigureShowcase extends Component {
 
       return <div className="figure-showcase">
             <div className="showcase-name"><h2>{message.gname}</h2></div>
+            <div className="showcase-contents">
             <div><img className="showcase-img" alt="figure" src={"https://img.amiami.com/" + message.main_image_url} /></div>
+            <div className="showcase-left">
             <div className = "showcase-meta">
             <div className="showcase-manu">Manufactured by: {message.maker_name}</div>
             <div className="showcase-release-date">Release Date: {message.releasedate}</div>
@@ -60,6 +62,8 @@ class FigureShowcase extends Component {
             </div>
             <div className="showcase-pricing">
               <div className="showcase-price-compare">Solaris Price: {solaris ? solaris : "loading"}</div>
+            </div>
+            </div>
             </div>
             <button className="showcase-exit" onClick={onClick}>Close</button> 
         </div>;
